@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TutorialsActivity">
+
+    <Button
+        android:id="@+id/dataPrivacyTutorialsButton"
+        android:layout_width="275dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:text="Data Privacy Tutorials"
+        app:layout_constraintBottom_toTopOf="@+id/cookiesTutorialButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/cookiesTutorialButton"
+        android:layout_width="275dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="Cookies Tutorials"
+        app:layout_constraintBottom_toTopOf="@+id/vpnTutorialsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataPrivacyTutorialsButton" />
+
+    <Button
+        android:id="@+id/vpnTutorialsButton"
+        android:layout_width="275dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="VPN Tutorials"
+        app:layout_constraintBottom_toTopOf="@+id/installingApplicationsTutorial"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cookiesTutorialButton" />
+
+    <Button
+        android:id="@+id/installingApplicationsTutorial"
+        android:layout_width="275dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="Installing Applications Tutorials"
+        app:layout_constraintBottom_toTopOf="@+id/thePriceOfFreeButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vpnTutorialsButton" />
+
+    <Button
+        android:id="@+id/thePriceOfFreeButton"
+        android:layout_width="275dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="Price of Free App Tutorials"
+        app:layout_constraintBottom_toTopOf="@+id/tutorialBackButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/installingApplicationsTutorial" />
+
+    <Button
+        android:id="@+id/tutorialBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DataPrivacyTutorialsActivity">
+
+    <Button
+        android:id="@+id/whatIsDataPrivacyButton"
+        android:layout_width="275dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="48dp"
+        android:text="What is Data Privacy?"
+        app:layout_constraintBottom_toTopOf="@+id/WhyIsDataPrivacyButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/WhyIsDataPrivacyButton"
+        android:layout_width="275dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="8dp"
+        android:text="Why is Data Privacy Important?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/whatIsDataPrivacyButton" />
+
+    <Button
+        android:id="@+id/dataPrivacyLaws"
+        android:layout_width="275dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="8dp"
+        android:text="Data Privacy Laws"
+        app:layout_constraintBottom_toTopOf="@+id/improveDataPrivacy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WhyIsDataPrivacyButton" />
+
+    <Button
+        android:id="@+id/manualAddBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginStart="148dp"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/improveDataPrivacy"
+        android:layout_width="275dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="8dp"
+        android:text="Ways to improve your Data Privacy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataPrivacyLaws" />
+
+</android.support.constraint.ConstraintLayout>
