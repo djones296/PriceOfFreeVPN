@@ -23,10 +23,13 @@
         android:id="@+id/ipAddress"
         android:layout_width="60dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="IP Address"
+        app:layout_constraintEnd_toStartOf="@+id/edit_Ip"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/process"
@@ -62,15 +65,18 @@
         android:id="@+id/edit_Ip"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="85dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/edit_Process"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/ipAddress"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edit_Process"
@@ -81,7 +87,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/process"
         app:layout_constraintTop_toBottomOf="@+id/edit_Ip" />
@@ -95,7 +101,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/packetSize"
         app:layout_constraintTop_toBottomOf="@+id/edit_Process" />
@@ -109,7 +115,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/inputOutput"
         app:layout_constraintTop_toBottomOf="@+id/edit_Size" />
@@ -133,7 +139,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/dateTime"
         app:layout_constraintTop_toBottomOf="@+id/edit_Input_Output" />

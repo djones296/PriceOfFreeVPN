@@ -28,6 +28,8 @@ public class ManuallyAddToDatabaseActivity extends AppCompatActivity {
         editDateTime = findViewById(R.id.edit_Date_Time);
         addToDatabaseButton = findViewById(R.id.addToDatabase);
 
+        addToDatabase();
+
         backButton = findViewById(R.id.manualAddBackButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override

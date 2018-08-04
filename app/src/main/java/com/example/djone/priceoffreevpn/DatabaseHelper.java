@@ -17,6 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private final String DATETIME = "DateTime";
     public final String VIEWPACKETS = "ViewPackets";
     private final String TAG = "DeletingFromDatabase";
+    public int packetId = 1;
 
 
     public DatabaseHelper(Context context) {
@@ -25,13 +26,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + PACKETTABLE + "(" +
-        PACKETID + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
+        PACKETID + "INTEGER PRIMARY KEY, " +
         IPADDRESS + "VARCHAR NOT NULL, " +
         PROCESS + "STRING, " +
         PACKETSIZE + "INTEGER," +
         INPUTOUTPUT + "STRING," +
         DATETIME + "DATETIME);");//Create the Packets table for the database
-
+        Log.i("Database", "Database Built");
     }//onCreate
 
     @Override
@@ -55,12 +56,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean manuallyInsertData(String ip, String process, String size, String inputOutput, String dateTime){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValue = new ContentValues();
+        contentValue.put(PACKETID, packetId);
         contentValue.put(IPADDRESS, ip);
         contentValue.put(PROCESS, process);
         contentValue.put(PACKETSIZE, size);
         contentValue.put(INPUTOUTPUT, inputOutput);
         contentValue.put(DATETIME, dateTime);
         long result = db.insert(PACKETTABLE, null, contentValue);
+        packetId = + 1;
         if (result ==-1){
             return false;
         }//if

@@ -28,6 +28,7 @@
                 <action android:name="android.net.VpnService" />
             </intent-filter>
         </service>
+        <service android:name=".TestVpnService" />
 
         <activity android:name=".OptionsActivity" />
         <activity android:name=".TutorialsActivity" />
