@@ -35,6 +35,7 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
         if (vpnThread != null){
             vpnThread.interrupt();
         }//if a thread is already running interrupt it
+        //dqdqw
 
         //starts a new session by creating a new thread
         vpnThread = new Thread(this, "VpnThread");
