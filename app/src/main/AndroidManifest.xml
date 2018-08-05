@@ -3,9 +3,7 @@
     package="com.example.djone.priceoffreevpn">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    //allows application to open network sockets
     <uses-permission android:name="android.permission.RECIEVE_BOOT_COMPLETED" />
-    //allows application to start on device boot
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -28,7 +26,10 @@
                 <action android:name="android.net.VpnService" />
             </intent-filter>
         </service>
-        <service android:name=".TestVpnService"
+        <service
+            android:name=".TestVpnService"
+            android:enabled="true"
+            android:exported="true"
             android:permission="android.permission.BIND_VPN_SERVICE"
             />
 
@@ -36,7 +37,7 @@
         <activity android:name=".TutorialsActivity" />
         <activity android:name=".DataPrivacyTutorialsActivity" />
         <activity android:name=".ImproveDataPrivacyActivity" />
-        <activity android:name=".ManuallyAddToDatabaseActivity"></activity>
+        <activity android:name=".ManuallyAddToDatabaseActivity" />
     </application>
 
 </manifest>

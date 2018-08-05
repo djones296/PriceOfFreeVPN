@@ -75,8 +75,6 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
             Message messageObj = vpnHandler.obtainMessage();
             messageObj.obj = "Disconnected from VPN";
             vpnHandler.sendMessage(messageObj);
-        }finally {
-
         }
     }//run
 
@@ -158,7 +156,7 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
             Builder builder = new Builder();
 
             builder.setMtu(1500);
-            builder.addAddress("10.0.0.2", 32);
+            builder.addAddress("10.0.0.2", 32);//use internal ip
             builder.addRoute("0.0.0.0", 0);//set to 0 to check all packets
 
             try {
@@ -186,6 +184,7 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
 
         String status = "";
         status += "Header Length: " + headerLength;
+
 
 
         buffer = packet.get();
