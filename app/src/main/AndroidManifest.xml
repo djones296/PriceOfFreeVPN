@@ -40,7 +40,18 @@
         <activity android:name=".ManuallyAddToDatabaseActivity" />
         <activity android:name=".WhatIsDataPrivacy" />
         <activity android:name=".WhyIsDataPrivacyImportant" />
-        <activity android:name=".DataPrivacyLaws"></activity>
+        <activity android:name=".DataPrivacyLaws" />
+        <activity android:name=".CookiesTutorialActivity" />
+        <activity android:name=".WhatAreCookies" />
+        <activity android:name=".SessionCookies" />
+        <activity android:name=".PermanentCookies" />
+        <activity android:name=".ThirdPartyCookies">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -52,7 +52,6 @@ public class WhatIsDataPrivacy extends AppCompatActivity {
                     "UTF-8", null);
         }//try
         catch (Exception e){
-            e.printStackTrace();
-        }
+            e.printStackTrace();}
     }//dataPrivWebView
 }//What is Data Privacy

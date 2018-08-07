@@ -7,14 +7,20 @@ import android.view.View;
 import android.widget.Button;
 
 public class TutorialsActivity extends AppCompatActivity {
-    public Button backButton, dataPrivacyButton;
-    public Intent goMain, goDataPrivacy;
+    public Button backButton, dataPrivacyButton, cookiesButton;
+    public Intent goMain, goDataPrivacy, goCookies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorials);
+        goBack();
+        goDataPrivacy();
+        goCookies();
 
+    }//onCreate
+
+    public void goBack(){
         backButton = findViewById(R.id.tutorialBackButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -23,7 +29,18 @@ public class TutorialsActivity extends AppCompatActivity {
                 startActivity(goMain);
             }//onClick for backButton
         });//onClickListener for backButton
-
+    }
+    public void goCookies(){
+        cookiesButton = findViewById(R.id.cookiesTutorialButton);
+        cookiesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goCookies = new Intent(TutorialsActivity.this, CookiesTutorialActivity.class);
+                startActivity(goCookies);
+            }
+        });
+    }
+    public void goDataPrivacy(){
         dataPrivacyButton = findViewById(R.id.dataPrivacyTutorialsButton);
         dataPrivacyButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,5 +49,5 @@ public class TutorialsActivity extends AppCompatActivity {
                 startActivity(goDataPrivacy);
             }//onClick for dataPrivacyButton
         });//onClickListener for dataPrivacyButton
-    }//onCreate
+    }
 }//TutorialsActivity
