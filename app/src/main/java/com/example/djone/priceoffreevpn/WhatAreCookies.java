@@ -37,7 +37,7 @@ public class WhatAreCookies extends AppCompatActivity {
                 total.append(line).append("\n");
             }//while
 
-            webView.loadDataWithBaseURL(null, total.toString(), "text/htm",
+            webView.loadDataWithBaseURL(null, total.toString(), "text/html",
                     "UTF-8", null);
         }//try
         catch (Exception e){

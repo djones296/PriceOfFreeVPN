@@ -128,7 +128,7 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
             public void run(){
                 DatagramChannel tunnel = vpnTunnel;
                 ByteBuffer packet = ByteBuffer.allocate(8096);
-                //Packets recieved need to be written to an output stream
+                //Packets received need to be written to an output stream
                 FileOutputStream outputStream = new FileOutputStream(vpnInterface.getFileDescriptor());
 
                 while (true){
@@ -248,4 +248,3 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
         vpnHandler.sendMessage(messageObj);
     }
 }
-//checking if commit is working

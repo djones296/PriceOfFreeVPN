@@ -27,13 +27,14 @@ public class ImproveDataPrivacyActivity extends AppCompatActivity {
             BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
             StringBuilder total = new StringBuilder();
             String line;
+
             while ((line = reader.readLine()) !=null){
                 total.append(line).append("\n");
                 }//while
                 webView.loadDataWithBaseURL(null, total.toString(), "text/html",
                         "UTF-8", null);
                 }//try
-                catch (Exception e){
+                    catch (Exception e){
             e.printStackTrace();
                 }//catch
 
