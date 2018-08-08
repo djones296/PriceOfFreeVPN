@@ -12,39 +12,47 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class ImproveDataPrivacyActivity extends AppCompatActivity {
-    public Button backButton;
-    public Intent goBack;
+public class ControlCookies extends AppCompatActivity {
+    Button backButton;
+    Intent goBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_improve_data_privacy);
+        setContentView(R.layout.activity_control_cookies);
+        controlCookiesWebView();
+        goBack();
+    }
 
-        WebView webView = findViewById(R.id.improvePrivacyWebView);
+    public void controlCookiesWebView(){
+        WebView webView = findViewById(R.id.controlCookiesWebView);
+
         try {
             AssetManager assetManager = getApplicationContext().getAssets();
-            InputStream stream = assetManager.open("Ways to improve data privacy.htm");
+            InputStream stream = assetManager.open("Control Cookies.htm");
             BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
             StringBuilder total = new StringBuilder();
             String line;
 
             while ((line = reader.readLine()) !=null){
                 total.append(line).append("\n");
-                }//while
-                webView.loadDataWithBaseURL(null, total.toString(), "text/html",
-                        "UTF-8", null);
-                }//try
-                        catch (Exception e){
-            e.printStackTrace();
-                }//catch
+            }
 
-        backButton = findViewById(R.id.manualAddBackButton);
+            webView.loadDataWithBaseURL(null, total.toString(), "text/html",
+                    "UTF-8", null);
+        }//try
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void goBack(){
+        backButton.findViewById(R.id.controlCookiesBack);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goBack = new Intent(ImproveDataPrivacyActivity.this, DataPrivacyTutorialsActivity.class);
-                startActivity(goBack);
-            }//onClick for goBack button
-        });//onClickListener for button
-    }//onCreate
+                goBack = new Intent(ControlCookies.this, CookiesTutorialActivity.class);
+            }
+        });
+    }
 }

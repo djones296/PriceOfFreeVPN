@@ -8,9 +8,9 @@ import android.widget.Button;
 
 public class CookiesTutorialActivity extends AppCompatActivity {
     Button backButton, whatAreCookiesButton, sessionCookiesButton, permanentCookiesButton,
-    thirdPartyCookiesButton;
+    thirdPartyCookiesButton, howToControlCookies;
 
-    Intent goBack, goWhatAre, goSession, goPermanent, goThirdParty;
+    Intent goBack, goWhatAre, goSession, goPermanent, goThirdParty, goHowToControlCookies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class CookiesTutorialActivity extends AppCompatActivity {
         sessionCookies();
         permanentCookies();
         thirdPartyCookies();
+        controlCookies();
         goBack();
     }
 
@@ -75,6 +76,17 @@ public class CookiesTutorialActivity extends AppCompatActivity {
             public void onClick(View v) {
                 goThirdParty = new Intent(CookiesTutorialActivity.this, ThirdPartyCookies.class);
                 startActivity(goThirdParty);
+            }
+        });
+    }
+
+    public void controlCookies(){
+        howToControlCookies = findViewById(R.id.controlCookies);
+        howToControlCookies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goHowToControlCookies = new Intent(CookiesTutorialActivity.this, ControlCookies.class);
+                startActivity(goHowToControlCookies);
             }
         });
     }
