@@ -52,7 +52,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ControlCookies"></activity>
+        <activity android:name=".ControlCookies" />
+        <activity android:name=".VpnTutorials" />
+        <activity android:name=".WhatIsAVpn"></activity>
     </application>
 
 </manifest>
