@@ -37,7 +37,6 @@
         <activity android:name=".TutorialsActivity" />
         <activity android:name=".DataPrivacyTutorialsActivity" />
         <activity android:name=".ImproveDataPrivacyActivity" />
-        <activity android:name=".ManuallyAddToDatabaseActivity" />
         <activity android:name=".WhatIsDataPrivacy" />
         <activity android:name=".WhyIsDataPrivacyImportant" />
         <activity android:name=".DataPrivacyLaws" />
@@ -54,7 +53,8 @@
         </activity>
         <activity android:name=".ControlCookies" />
         <activity android:name=".VpnTutorials" />
-        <activity android:name=".WhatIsAVpn"></activity>
+        <activity android:name=".WhatIsAVpn" />
+        <activity android:name=".HowDoesAVpnWork"></activity>
     </application>
 
 </manifest>

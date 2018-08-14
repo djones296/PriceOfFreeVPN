@@ -10,7 +10,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DBNAME = "Packet Database";
     private static final String PACKETTABLE = "Packets";
     private static final String PACKETID = "PacketID";
-    private final String IPADDRESS = "IP";
+    private final String STARTIPADDRESS = "SOURCE IP";
+    private final String DESTIP = "Destination IP";
     private final String PROCESS = "Process";
     private final String PACKETSIZE ="PacketSize";
     private final String INPUTOUTPUT = "InputOutput";
@@ -26,8 +27,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + PACKETTABLE + "(" +
-        PACKETID + "INTEGER PRIMARY KEY, " +
-        IPADDRESS + "VARCHAR NOT NULL, " +
+        PACKETID + "INTEGER PRIMARY KEY , " +
+        STARTIPADDRESS + "VARCHAR NOT NULL, " +
+        DESTIP + "VARCHAR NOT NULL, " +
         PROCESS + "STRING, " +
         PACKETSIZE + "INTEGER," +
         INPUTOUTPUT + "STRING," +
@@ -41,6 +43,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }//onUpgrade
 
+    public void addToDatabase(){
+
+    }
+
     public void clearDatabase(){
         SQLiteDatabase db = this.getWritableDatabase();
         try {
@@ -52,23 +58,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }//catch
         db.close();
     }
-
-    public boolean manuallyInsertData(String ip, String process, String size, String inputOutput, String dateTime){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValue = new ContentValues();
-        contentValue.put(PACKETID, packetId);
-        contentValue.put(IPADDRESS, ip);
-        contentValue.put(PROCESS, process);
-        contentValue.put(PACKETSIZE, size);
-        contentValue.put(INPUTOUTPUT, inputOutput);
-        contentValue.put(DATETIME, dateTime);
-        long result = db.insert(PACKETTABLE, null, contentValue);
-        packetId = + 1;
-        if (result ==-1){
-            return false;
-        }//if
-        else {
-            return true;
-        }//else
-    }//manuallyInsertData
 }
