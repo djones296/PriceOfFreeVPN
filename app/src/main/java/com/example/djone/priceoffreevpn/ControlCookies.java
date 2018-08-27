@@ -47,7 +47,7 @@ public class ControlCookies extends AppCompatActivity {
     }
 
     public void goBack(){
-        backButton.findViewById(R.id.controlCookiesBack);
+        backButton.findViewById(R.id.controlBackButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

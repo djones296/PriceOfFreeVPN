@@ -7,16 +7,18 @@
     tools:context=".ControlCookies">
 
     <Button
-        android:id="@+id/controlCookiesBack"
+        android:id="@+id/controlBackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="35dp"
         android:layout_marginEnd="148dp"
         android:layout_marginStart="148dp"
+        android:layout_marginTop="8dp"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/controlCookiesWebView" />
 
     <WebView
         android:id="@+id/controlCookiesWebView"
@@ -26,7 +28,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/controlCookiesBack"
+        app:layout_constraintBottom_toTopOf="@+id/controlBackButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

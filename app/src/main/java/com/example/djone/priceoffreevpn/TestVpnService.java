@@ -26,6 +26,7 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
 
     private ParcelFileDescriptor vpnInterface;
 
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
         if (vpnHandler == null){
@@ -198,6 +199,7 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
         buffer = packet.get();//protocol
 
         Log.i(TAG, "Protocol: " + buffer);
+        String protocol = String.valueOf(buffer);
 
         status +=" Protocl: " + buffer;
 
@@ -242,9 +244,12 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
         Log.i(TAG, "Destination IP: " + destinationIP);
 
         status += " Destination IP: " + destinationIP;
-
+        String source = sourceIP;
+        String dest = destinationIP;
+        DatabaseHelper myDb = new DatabaseHelper(this);
+        myDb.addToDatabase(source,dest);
         Message messageObj = vpnHandler.obtainMessage();
-        messageObj.obj= status;
+        messageObj.obj = status;
         vpnHandler.sendMessage(messageObj);
     }
 }

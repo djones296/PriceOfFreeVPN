@@ -11,8 +11,8 @@ import android.widget.Toast;
 
 public class OptionsActivity extends AppCompatActivity{
     DatabaseHelper db;
-    public Button backButton, emptyDatabaseButton, manuallyAddDatabase;
-    public Intent goBack, goManuallyAdd;
+    public Button backButton, emptyDatabaseButton;
+    public Intent goBack;
     private static final String TAG = "TryDeleteFromDatabase";
 
     @Override
@@ -29,15 +29,6 @@ public class OptionsActivity extends AppCompatActivity{
                 startActivity(goBack);
             }//onClick for goBack button
         });//onClickListener for goBack button
-
-        manuallyAddDatabase = findViewById(R.id.ManualAddPackets);
-        manuallyAddDatabase.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goManuallyAdd = new Intent(OptionsActivity.this, ManuallyAddToDatabaseActivity.class);
-                startActivity(goManuallyAdd);
-            }//onClick for manuallyAddDatabase button
-        });//onClickListener for manuallyAddDatabase button
 
         emptyDatabaseButton = findViewById(R.id.clearDatabaseButton);
         emptyDatabaseButton.setOnClickListener(new View.OnClickListener() {
