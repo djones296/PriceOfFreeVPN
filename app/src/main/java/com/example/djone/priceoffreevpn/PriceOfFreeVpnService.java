@@ -16,7 +16,7 @@ import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 
-public class TestVpnService extends VpnService implements Handler.Callback, Runnable {
+public class PriceOfFreeVpnService extends VpnService implements Handler.Callback, Runnable {
     private static final String TAG = "PriceOfFreeVPN";
 
     private PendingIntent configureIntentVpn;
@@ -71,7 +71,6 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
             try {
                 vpnInterface.close();
             }catch (Exception e2){
-                //ignore this error
             }
             Message messageObj = vpnHandler.obtainMessage();
             messageObj.obj = "Disconnected from VPN";
@@ -81,8 +80,7 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
 
     DatagramChannel vpnTunnel = null;
 
-    private boolean run(InetSocketAddress server) throws Exception {
-        boolean vpnConnected;
+    private void run(InetSocketAddress server) throws Exception {
 
         vpnTunnel = DatagramChannel.open();//open Datagram Channel to use as the VPN tunnel
 
@@ -97,7 +95,6 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
         handshake();//configure the virtual networks interface
 
         //now connected so update flag and message
-        vpnConnected = true;
         Message messageObj = vpnHandler.obtainMessage();
         messageObj.obj = "Connected to VPN";
         vpnHandler.sendMessage(messageObj);
@@ -114,7 +111,7 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
                         while ((length = inputStream.read(packet.array())) >0 ){
                             //Outgoing packet gets wrote to the tunnel
                             packet.limit(length);
-                            debugPacket(packet);//obtain information on the packet
+                            deconstructPacket(packet);//obtain information on the packet
                             vpnTunnel.write(packet);//places packet in the tunnel
                             packet.clear();//clear to allow next packet to be read
                         }
@@ -128,7 +125,7 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
         new Thread(){
             public void run(){
                 DatagramChannel tunnel = vpnTunnel;
-                ByteBuffer packet = ByteBuffer.allocate(8096);
+                ByteBuffer packet = ByteBuffer.allocate(32767);
                 //Packets received need to be written to an output stream
                 FileOutputStream outputStream = new FileOutputStream(vpnInterface.getFileDescriptor());
 
@@ -148,8 +145,6 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
                 }//while
             }//run
         }.start();
-
-        return vpnConnected;
     }//run
 
     private void handshake(){
@@ -157,8 +152,8 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
             Builder builder = new Builder();
 
             builder.setMtu(1500);
-            builder.addAddress("10.0.0.2", 32);//use internal ip
-            builder.addRoute("0.0.0.0", 0);//set to 0 to check all packets
+            builder.addAddress("10.0.0.2", 32);//using an internal ip
+            builder.addRoute("0.0.0.0", 0);//set to 0 so it checks all packets
 
             try {
                 vpnInterface.close();
@@ -172,7 +167,7 @@ public class TestVpnService extends VpnService implements Handler.Callback, Runn
         }
     }//handShake
 
-    private void debugPacket(ByteBuffer packet){
+    private void deconstructPacket(ByteBuffer packet){
         int buffer = packet.get();
         int version;
         int headerLength;

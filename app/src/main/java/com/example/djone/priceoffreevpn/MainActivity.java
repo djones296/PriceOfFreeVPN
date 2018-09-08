@@ -1,7 +1,6 @@
     package com.example.djone.priceoffreevpn;
 
 import android.content.Intent;
-import android.net.VpnService;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,7 +16,6 @@ import java.util.ArrayList;
     public Button vpnButton, settingsButton, tutorialsButton, stopVpnButton;
     public Intent intentVPN, goSettings, goTutorials, startVpnIntent, stopVpn;
     public boolean vpnAllowed = false;//defaults to false in case user does not allow vpn services
-    public boolean vpnRunning = false;//used in conjunction with if function so actions only take place when the vpn is running
     private ArrayList<String> mLiveFeedText = new ArrayList<>();
 
     @Override
@@ -44,12 +42,12 @@ import java.util.ArrayList;
     }//initiRecyclerViewContents
     private void initRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.liveFeed);
-        LiveFeedAdapter adapter = new LiveFeedAdapter(mLiveFeedText,this);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(mLiveFeedText,this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
     private void vpnIntent(){
-        intentVPN = VpnService.prepare(this);
+        intentVPN = android.net.VpnService.prepare(this);
         if (intentVPN != null){
             startActivityForResult(intentVPN, 0);
         }//if
@@ -63,9 +61,8 @@ import java.util.ArrayList;
             @Override
             public void onClick(View v) {
                 if (vpnAllowed) {
-                    startVpnIntent = new Intent(MainActivity.this, TestVpnService.class);
+                    startVpnIntent = new Intent(MainActivity.this, PriceOfFreeVpnService.class);
                     startService(startVpnIntent);
-                    vpnRunning = true;
                 }//if function so vpn only attempts to run if vpn services have been enabled
             }//onClick for startVpnButton
         });//setOnClickListener for startVpnButton
